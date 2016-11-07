@@ -24,6 +24,6 @@
     with middleware suitable for APIs, otherwise it will be wrapped with
     middlware suitable for websites"
     (fn [request]
-        (if (clojure.string/starts-with? (:uri request) api-base)
-         (do (println "api request") (wrap-api handler))
-         (do (println "site request") (wrap-defaults handler site-defaults)))))
+        (if (clojure.string/starts-with? (:uri request) api-base) 
+            ((wrap-api handler) request)
+            ((wrap-defaults handler site-defaults) request))))

@@ -16,4 +16,4 @@
   
 
 (def app
-  (-> app-routes (wrap-api)))
+  (-> app-routes (wrap-api-or-site-defaults api-base)))
